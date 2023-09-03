@@ -1,5 +1,6 @@
 const mongoose  =  require('mongoose')
 const User = require('../Users/User')
+const Comment = require('../Comments/Comments')
 const postSchema = mongoose.Schema({
     title:{
         type:String,
@@ -20,7 +21,7 @@ const postSchema = mongoose.Schema({
     Author:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        ref:'User'
+        ref:User
     },
     postViews:{
         type:Number,
@@ -29,25 +30,25 @@ const postSchema = mongoose.Schema({
     postLikes:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:'User'
+            ref:User
         }
     ],
     postDislikes:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:'User'
+            ref:User
         }
     ],
     postComments:[
         {
             type:mongoose.Schema.Types.ObjectId,
-            ref:'Comment'
+            ref:Comment
         }
     ],
     Category:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        ref:'Category'
+        ref:Category
     },
     schedulePost:{
         type:Date,
