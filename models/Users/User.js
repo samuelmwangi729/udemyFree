@@ -34,7 +34,7 @@ const UserSchema = mongoose.Schema({
     userLevel:{
         type:String,
         enum:['Admin','Writer','Client','Marketer'],
-        default:0
+        default:'Client'
     },
     accountStatus:{
         type:String,
@@ -59,16 +59,20 @@ const UserSchema = mongoose.Schema({
         default:""
     },
     passwordResetToken:{
-        type:String
+        type:String,
+        default:""
     },
     passwordResetTokenExpiry:{
-        type:Date
+        type:Date,
+        default:""
     },
     accountVerificationToken:{
-        type:String
+        type:String,
+        default:""
     },
     accountVerificationTokenExpiry:{
-        type:Date
+        type:Date,
+        default:""
     },
 },{timestamps:true})
 
