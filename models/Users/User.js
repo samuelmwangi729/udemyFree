@@ -11,11 +11,13 @@ const UserSchema = mongoose.Schema({
     },
     username:{
         type:String,
-        required:[true,'Username Is Required']
+        required:[true,'Username Is Required'],
+        unique:true
     },
     email:{
         type:String,
-        required:[true,'User Email Is Required'],
+        required:[true,'The Email is Required'],
+        lowercase:true,
         unique:true,
         validate:[(val)=>{
             isEmail
